@@ -1,7 +1,8 @@
 local plugin = require("plugin")
 
 local plugins = {
-  { "neovim/nvim-lspconfig" },
+
+  { "neovim/nvim-lspconfig"},
 
   { "hrsh7th/nvim-cmp" },
 

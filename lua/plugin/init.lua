@@ -33,13 +33,10 @@ plugin.load = function()
     require("plugin." .. mod)
   end
 
-  vim.notify("hey after register", "info", { title = "none" })
-
   require("packer").startup(function(use)
     use 'wbthomason/packer.nvim'
 
     for _, plg in ipairs(plugin.content) do
-      vim.notify("1", "info", {})
       use(plg)
     end
 
