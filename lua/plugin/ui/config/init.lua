@@ -1,11 +1,17 @@
 local config = {}
 
+local cfg = "plugin.ui.config"
+
 config.material = function()
-  require("plugin.ui.config.material_config")
+  require(cfg .. "material_config")
 end
 
 config.bufferline = function() 
-  require("bufferline").setup{}
+  require(cfg .. "bufferline_config")
+end
+
+config.nvim_tree = function ()
+  require(cfg .. "nvim_tree_config")
 end
 
 return config
