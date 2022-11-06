@@ -10,12 +10,13 @@ local plugins = {
     tag = "v2.*",
     requires = 'kyazdani42/nvim-web-devicons',
     config = cfg.bufferline,
+		event = "BufRead",
   },
 
   {
-		"marko-cerovac/material.nvim",
-		config = cfg.material,
-	},
+    "marko-cerovac/material.nvim",
+    config = cfg.material,
+  },
 
   {
     "kyazdani42/nvim-tree.lua",

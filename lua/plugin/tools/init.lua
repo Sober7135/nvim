@@ -19,6 +19,11 @@ local plugins = {
 		},
 		config = cfg.telescope,
 	},
+
+	{
+		'wakatime/vim-wakatime',
+	}
+
 }
 
 for _, v in ipairs(plugins) do

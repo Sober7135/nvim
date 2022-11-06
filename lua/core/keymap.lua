@@ -1,43 +1,35 @@
-local keymap = {
-}
+keymap = {}
 
-local map = vim.api.nvim_set_keymap
-
-local opt = { noremap = true, silent = true }
-
-keymap.setup = function()
-  map("i", "jj", "<ESC>", opt)
-  map("v", "df", "<ESC>", opt)
-  map("n", "<C-a>", "ggvG$", opt)
-  map("n", "<C-s>", ":w<CR>", opt)
-  map("n", "Y", "y$", opt)
-
-  -- move cursor between windows
-  map("n", "<C-h>", ":wincmd h<CR>", opt)
-  map("n", "<C-j>", ":wincmd j<CR>", opt)
-  map("n", "<C-k>", ":wincmd k<CR>", opt)
-  map("n", "<C-l>", ":wincmd l<CR>", opt)
-
-	-- nvim-tree
-	map("n", "<C-e>", ":NvimTreeToggle<CR>", opt)
-
-
-	-- bufferline
-  map("n", "<C-c>", ":BufferLinePickClose<CR>", opt)
-  map("n", "<Tab>", ":BufferLineCycleNext<CR>", opt)
-  map("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", opt)
-
-  map("n", "<A-1>", ":BufferLineGoToBuffer 1 <CR>", opt)
-	map("n", "<A-2>", ":BufferLineGoToBuffer 2 <CR>", opt)
-	map("n", "<A-3>", ":BufferLineGoToBuffer 3 <CR>", opt)
-	map("n", "<A-4>", ":BufferLineGoToBuffer 4 <CR>", opt)
-	map("n", "<A-5>", ":BufferLineGoToBuffer 5 <CR>", opt)
-	map("n", "<A-6>", ":BufferLineGoToBuffer 6 <CR>", opt)
-	map("n", "<A-7>", ":BufferLineGoToBuffer 7 <CR>", opt)
-	map("n", "<A-8>", ":BufferLineGoToBuffer 8 <CR>", opt)
-	map("n", "<A-9>", ":BufferLineGoToBuffer 9 <CR>", opt)
+function keymap.cmd(str)
+	return '<cmd>' .. str .. '<CR>'	
 end
 
-keymap.map = vim.api.nvim_set_keymap
+local keymap_set = function(mod, tbl)
+	vim.validate({
+		tbl = { tbl, 'table'}
+	})
 
-return keymap
+	local len = #tbl
+	if len < 2 then
+		vim.notify('keymap must has rhs')
+		return
+	end
+
+	vim.keymap.set(mod, tbl[1], tbl[2], tbl[3])
+end
+
+local function map(mod) 
+	return function(tbl)
+		vim.validate({
+			tbl = { tbl, 'table'}
+		})
+
+		for _, v in pairs(tbl) do
+			keymap_set(mod, v)
+		end
+	end
+end
+
+keymap.nmap = map('n')
+keymap.imap = map('i')
+keymap.vmap = map('v')

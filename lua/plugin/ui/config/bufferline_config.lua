@@ -14,7 +14,7 @@ require('bufferline').setup {
 			end
 			return s
 		end,
-		
+
 		show_tab_indicators = false,
 		max_name_length = 10,
 		max_prefix_length = 15, -- prefix used when a buffer is de-duplicated

@@ -5,7 +5,7 @@ local fn = vim.fn
 local install_path = fn.stdpath("data") .. '/site/pack/packer/start/packer.nvim'
 
 local has_packer = function()
-  return fn.empty(fn.glob(install_path)) > 0
+  return fn.empty(fn.glob(install_path)) == 0
 end
 
 local bootstrap = function()
@@ -24,8 +24,8 @@ plugin.load = function()
   local modules = {
     "completion",
     "lang",
+    "tools",
     "ui",
-    "tools"
   }
 
   -- register
@@ -48,9 +48,7 @@ plugin.init = function()
   if not has_packer() then
     bootstrap()
   end
-
   plugin.load()
-
 end
 
 return plugin
