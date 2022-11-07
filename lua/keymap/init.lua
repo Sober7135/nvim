@@ -2,9 +2,6 @@ require('core.keymap')
 
 local nmap, imap, vmap = keymap.nmap, keymap.imap, keymap.vmap
 local cmd = keymap.cmd
-
--- local map = vim.keymap
-
 local opt = { noremap = true, silent = true }
 
 imap({
@@ -12,7 +9,7 @@ imap({
 })
 
 vmap({
-	{ 'df', '<ESC>', opt },
+	{ '<Leader>jj', '<ESC>', opt },
 })
 
 nmap({
@@ -46,5 +43,8 @@ nmap({
 	{ '<A-9>', cmd('BufferLineGoToBuffer 9'), opt },
 
 -- material_theme
-	{'<Leader>ct', cmd('lua require("material.functions").find_style()'), opt}
+	{'<Leader>ct', cmd('lua require("material.functions").find_style()'), opt},
+
+-- telescope
+	{"<Leader>ff", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<CR>", opt},
 })

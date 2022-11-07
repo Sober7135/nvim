@@ -8,9 +8,11 @@ o.termguicolors = true
 o.tabstop = 2
 o.shiftwidth = 2
 o.cursorline = true
+o.laststatus = 3
 
 g.mapleader = ' '
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
+g.material_style = "palenight"
 
-vim.wo.fillchars='eob: '
+vim.cmd("set fillchars=eob:\\ ")

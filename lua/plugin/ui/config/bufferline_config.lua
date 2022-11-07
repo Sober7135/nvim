@@ -14,12 +14,13 @@ require('bufferline').setup {
 			end
 			return s
 		end,
-
+		
+		separator_style = 'slant',
 		show_tab_indicators = false,
 		max_name_length = 10,
 		max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
 		tab_size = 20,
-		offsets = {{filetype = "NvimTree", text = "Explorer" , text_align = "center"}},
+		offsets = {{filetype = "NvimTree", text = "Explorer" , text_align = "center", separator = true}},
 	}
 }
 

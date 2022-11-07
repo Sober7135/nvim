@@ -13,7 +13,7 @@ require('material').setup({
         comments = { italic = true },
         strings = { bold = true },
         keywords = { --[[ underline = true ]] },
-        functions = { bold = true, undercurl = true },
+        functions = { bold = true, --[[ undercurl = true]] },
         variables = {},
         operators = {},
         types = {},
@@ -29,9 +29,9 @@ require('material').setup({
         -- "lspsaga",
         -- "mini",
         -- "neogit",
-        -- "nvim-cmp",
+        "nvim-cmp",
         -- "nvim-navic",
-        -- "nvim-tree",
+        "nvim-tree",
         -- "sneak",
         "telescope",
         -- "trouble",
@@ -61,4 +61,3 @@ require('material').setup({
 })
 
 vim.cmd 'colorscheme material' 
-vim.g.material_style = "palenight"
