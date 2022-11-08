@@ -8,12 +8,6 @@ local has_packer = function()
   return fn.empty(fn.glob(install_path)) == 0
 end
 
-local bootstrap = function()
-  fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-  vim.cmd [[packadd packer.nvim]]
-  plugin.load()
-end
-
 plugin.register = function(plugins)
   table.insert(plugin.content, plugins)
 end
@@ -43,10 +37,17 @@ plugin.load = function()
   end)
 end
 
+local bootstrap = function()
+  fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+  vim.cmd [[packadd packer.nvim]]
+	plugin.load()
+  require("packer").sync()
+end
 
 plugin.init = function()
   if not has_packer() then
     bootstrap()
+		return
   end
   plugin.load()
 end
