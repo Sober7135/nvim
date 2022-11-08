@@ -8,9 +8,4 @@ config.telescope = function()
 	require("plugin.tools.config.telescope_config")
 end
 
-config.autopairs = function()
-	require("plugin.tools.config.autopairs_config")
-end
-
-
 return config

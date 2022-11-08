@@ -24,10 +24,6 @@ local plugins = {
 		'wakatime/vim-wakatime',
 	},
 
-	{
-		"windwp/nvim-autopairs",
-		config = cfg.autopairs,
-	}
 }
 
 for _, v in ipairs(plugins) do
