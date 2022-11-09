@@ -24,6 +24,18 @@ local plugins = {
 		'wakatime/vim-wakatime',
 	},
 
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		after = 'nvim-treesitter',
+		event = 'BufRead',
+		config = cfg.indent_blankline
+	},
+
+	{
+		"akinsho/toggleterm.nvim",
+		tag = '*',
+		config = cfg.toggleterm
+	}
 }
 
 for _, v in ipairs(plugins) do

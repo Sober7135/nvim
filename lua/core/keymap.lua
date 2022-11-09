@@ -33,3 +33,4 @@ end
 keymap.nmap = map('n')
 keymap.imap = map('i')
 keymap.vmap = map('v')
+keymap.tmap = map('t')

@@ -1,6 +1,6 @@
 require('core.keymap')
 
-local nmap, imap, vmap = keymap.nmap, keymap.imap, keymap.vmap
+local nmap, imap, vmap, tmap = keymap.nmap, keymap.imap, keymap.vmap, keymap.tmap
 local cmd = keymap.cmd
 local opt = { noremap = true, silent = true }
 
@@ -13,15 +13,20 @@ vmap({
 })
 
 nmap({
+
 	{ '<C-a>', 'ggvG$', opt },
 	{ '<C-s>', cmd('w'), opt },
 	{ 'Y', 'y$', opt },
+	{ 'D', 'd$', opt },
+	{ ';q', cmd('q'), opt },
 
--- move cursor between windows
-	{ '<C-h>', cmd('wincmd h'), opt },
-	{ '<C-j>', cmd('wincmd j'), opt },
-	{ '<C-k>', cmd('wincmd k'), opt },
-	{ '<C-l>', cmd('wincmd l'), opt },
+-- window management
+	{ ';', '<C-w>', opt },
+	{ '<Leader>.', '<C-w>>', opt },
+	{ '<Leader>,', '<C-w><', opt },
+	{ '<Leader>-', '<C-w>-', opt },
+	{ '<Leader>=', '<C-w>+', opt },
+
 
 -- nvim-tree
 	{ '<C-e>', cmd('NvimTreeToggle'), opt },
@@ -43,8 +48,23 @@ nmap({
 	{ '<A-9>', cmd('BufferLineGoToBuffer 9'), opt },
 
 -- material_theme
-	{'<Leader>ct', cmd('lua require("material.functions").find_style()'), opt},
+	{ '<Leader>ct', cmd('lua require("material.functions").find_style()'), opt },
 
 -- telescope
-	{"<Leader>ff", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<CR>", opt},
+	{ "<Leader>ff", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<CR>", opt },
+
+-- toggleterm
+	{ 'ct', cmd('ToggleTerm'), opt },
+})
+
+tmap({
+	{ 'kk', '<C-\\><C-n>', opt },
+-- window management
+	{ ';h', cmd('wincmd h'), opt },
+	{ ';l', cmd('wincmd l'), opt },
+	{ ';j', cmd('wincmd j'), opt },
+	{ ';k', cmd('wincmd k'), opt },
+
+-- toggleterm
+	{ 'ct', cmd('ToggleTerm'), opt },
 })
