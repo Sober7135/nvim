@@ -20,7 +20,7 @@ nmap({
 	{ 'D', 'd$', opt },
 	{ ';q', cmd('q'), opt },
 
--- window management
+  -- window management
 	{ ';', '<C-w>', opt },
 	{ '<Leader>.', '<C-w>>', opt },
 	{ '<Leader>,', '<C-w><', opt },
@@ -28,11 +28,11 @@ nmap({
 	{ '<Leader>=', '<C-w>+', opt },
 
 
--- nvim-tree
+  -- nvim-tree
 	{ '<C-e>', cmd('NvimTreeToggle'), opt },
 
 
--- bufferline
+  -- bufferline
 	{ '<C-c>', cmd('BufferLinePickClose'), opt },
 	{ '<Tab>', cmd('BufferLineCycleNext'), opt },
 	{ '<S-Tab>', cmd('BufferLineCyclePrev'), opt },
@@ -47,24 +47,36 @@ nmap({
 	{ '<A-8>', cmd('BufferLineGoToBuffer 8'), opt },
 	{ '<A-9>', cmd('BufferLineGoToBuffer 9'), opt },
 
--- material_theme
+  -- material_theme
 	{ '<Leader>ct', cmd('lua require("material.functions").find_style()'), opt },
 
--- telescope
+  -- telescope
 	{ "<Leader>ff", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<CR>", opt },
 
--- toggleterm
+  -- toggleterm
 	{ 'ct', cmd('ToggleTerm'), opt },
+	-- Lspsaga
+  { '[e', cmd('Lspsaga diagnostic_jump_next') },
+  { ']e', cmd('Lspsaga diagnostic_jump_prev') },
+  { '[c', cmd('Lspsaga show_cursor_diagnostics') },
+  { 'K', cmd('Lspsaga hover_doc') },
+  { 'ga', cmd('Lspsaga code_action') },
+  { 'gd', cmd('Lspsaga peek_definition') },
+  { 'gs', cmd('Lspsaga signature_help') },
+  { 'gr', cmd('Lspsaga rename') },
+  { 'gh', cmd('Lspsaga lsp_finder') },
+  { '<Leader>o', cmd('LSoutlineToggle') },
+  { '<Leader>g', cmd('Lspsaga open_floaterm lazygit') },
 })
 
 tmap({
 	{ 'kk', '<C-\\><C-n>', opt },
--- window management
+	-- window management
 	{ ';h', cmd('wincmd h'), opt },
 	{ ';l', cmd('wincmd l'), opt },
 	{ ';j', cmd('wincmd j'), opt },
 	{ ';k', cmd('wincmd k'), opt },
 
--- toggleterm
+	-- toggleterm
 	{ 'ct', cmd('ToggleTerm'), opt },
 })

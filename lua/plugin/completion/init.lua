@@ -49,7 +49,11 @@ local plugins = {
 		config = cfg.autopairs,
 	},
 
-
+	{
+		'glepnir/lspsaga.nvim',
+		after = 'nvim-lspconfig',
+		config = cfg.lspsaga,
+	}
 }
 
 for _, v in ipairs(plugins) do

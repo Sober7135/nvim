@@ -17,4 +17,12 @@ config.autopairs = function()
 	require("plugin.completion.config.autopairs_config")
 end
 
+config.lspsaga_config = function()
+	require("lspsaga").init_lsp_saga({
+		symbol_in_winbar = {
+			enable = true,
+		},
+	})
+end
+
 return config
