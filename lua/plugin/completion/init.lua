@@ -2,11 +2,6 @@ local plugin = require('plugin')
 local cfg = require('plugin.completion.config')
 
 local plugins = {
-	{
-    'rafamadriz/friendly-snippets',
-		event = 'InsertEnter',
-	},
-
   {
 		'neovim/nvim-lspconfig',
 		after = 'cmp-nvim-lsp',
@@ -17,7 +12,6 @@ local plugins = {
 	{
     'L3MON4D3/LuaSnip',
 		event = 'InsertEnter',
-    after = 'friendly-snippets',
 		config = cfg.luasnip
   },
 
