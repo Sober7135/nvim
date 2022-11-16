@@ -35,7 +35,15 @@ local plugins = {
 		"akinsho/toggleterm.nvim",
 		tag = '*',
 		config = cfg.toggleterm
-	}
+	},
+
+  {
+		'phaazon/hop.nvim',
+	  branch = 'v2',
+	  config = function()
+	    require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+	  end
+	},
 }
 
 for _, v in ipairs(plugins) do

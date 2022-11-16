@@ -1,4 +1,5 @@
 require('core.keymap')
+local func = require('keymap.custom')
 
 local nmap, imap, vmap, tmap = keymap.nmap, keymap.imap, keymap.vmap, keymap.tmap
 local cmd = keymap.cmd
@@ -19,6 +20,7 @@ nmap({
 	{ 'Y', 'y$', opt },
 	{ 'D', 'd$', opt },
 	{ ';q', cmd('q'), opt },
+	{ '<Leader>f', func.CXX_format, opt },
 
   -- window management
 	{ ';', '<C-w>', opt },

@@ -15,6 +15,13 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   },
 }
 
+vim.diagnostic.config({
+	signs = true,
+	update_in_insert = false,
+	underline = true,
+	severity_sort = true,
+  virtual_text = false,
+})
 
 require('lspconfig')['pyright'].setup{
 	capabilities = capabilities

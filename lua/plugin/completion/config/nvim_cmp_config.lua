@@ -75,6 +75,7 @@ cmp.setup({
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
       elseif has_words_before() then
+				vim.notify("has_words_before")
         cmp.complete()
       else
         fallback()
